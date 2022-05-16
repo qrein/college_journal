@@ -1,0 +1,93 @@
+﻿@*@model EducateApp.Models.Data.Discipline
+
+    @{
+        ViewData["Title"] = "Дисциплины";
+    }
+
+    <h3>
+        <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        Просмотр дисциплины
+    </h3>
+
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.IndexProfModule)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.IndexProfModule)
+            </dd>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.ProfModule)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.ProfModule)
+            </dd>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.Index)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.Index)
+            </dd>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.ShortName)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.ShortName)
+            </dd>
+        </dl>
+    </div>*@
+
+@model EducateApp.Models.Data.Discipline
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Просмотр диспиплины</h4>
+        <button type="button" class="close" data-dismiss="modal">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="modal-body">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.IndexProfModule)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IndexProfModule)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ProfModule)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ProfModule)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Index)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Index)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ShortName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ShortName)
+            </dd>
+        </dl>
+    </div>
+</div>

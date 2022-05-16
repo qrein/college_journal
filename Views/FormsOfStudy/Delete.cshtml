@@ -1,0 +1,40 @@
+﻿@model EducateApp.Models.Data.FormOfStudy
+@{
+    ViewData["Title"] = "Удаление - Формы  обучения";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
+        <li class="breadcrumb-item"><a asp-controller="FormsOfStudy" asp-action="Index">Формы  обучения</a></li>
+        <li class="breadcrumb-item active">Удаление</li>
+    </ol>
+</nav>
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Удаление формы  обучения
+</h3>
+
+<div>
+    <h4>
+        Вы уверены, что желаете удалить запись?<br />
+        Все связанные данные будут удалены!
+    </h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.FormOfEdu)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.FormOfEdu)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+    </form>
+</div>

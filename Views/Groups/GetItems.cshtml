@@ -1,0 +1,7 @@
+﻿@model IEnumerable<EducateApp.Models.Data.Specialty>
+<select id="specialty" name="IdSpecialty" class="form-control">
+    @foreach (var item in Model)
+    {
+        <option value="@item.Id">@item.Code</option>
+    }
+</select>

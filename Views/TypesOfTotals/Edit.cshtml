@@ -1,0 +1,43 @@
+﻿@model EducateApp.ViewModels.TypesOfTotals.EditTypeOfTotalViewModel
+
+@{
+    ViewData["Title"] = "Изменение - Виды промежуточной аттестации";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
+        <li class="breadcrumb-item"><a asp-controller="TypesOfTotals" asp-action="Index">Виды промежуточной аттестации</a></li>
+        <li class="breadcrumb-item active">Изменение</li>
+    </ol>
+</nav>
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Изменение вида промежуточной аттестации
+</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-5">
+        <form method="post" asp-controller="TypesOfTotals" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="CertificateName" class="control-label"></label>
+                <input asp-for="CertificateName" class="form-control" />
+                <span asp-validation-for="CertificateName" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="IdUser" />
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,43 @@
+﻿@model EducateApp.ViewModels.FormsOfStudy.EditFormOfStudyViewModel
+
+@{
+    ViewData["Title"] = "Изменение - Формы  обучения";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
+        <li class="breadcrumb-item"><a asp-controller="FormsOfStudy" asp-action="Index">Формы  обучения</a></li>
+        <li class="breadcrumb-item active">Изменение</li>
+    </ol>
+</nav>
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Изменение формы  обучения
+</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-5">
+        <form method="post"  asp-controller="FormsOfStudy" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="FormOfEdu" class="control-label"></label>
+                <input asp-for="FormOfEdu" class="form-control" />
+                <span asp-validation-for="FormOfEdu" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="IdUser" />
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

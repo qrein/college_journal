@@ -1,0 +1,74 @@
+﻿@model IEnumerable<EducateApp.Models.Data.TypeOfTotal>
+
+@{
+    ViewData["Title"] = "Виды промежуточной аттестации";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
+        <li class="breadcrumb-item active">Виды промежуточной аттестации</li>
+    </ol>
+</nav>
+<h2>Виды промежуточной аттестации</h2>
+
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+
+
+<h6>
+    <a class="btn text-dark" asp-action="Create">
+        <i class="far fa-plus-square"></i>  Добавить вид промежуточной аттестации
+    </a>
+</h6>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.CertificateNameSort">
+                    @Html.DisplayNameFor(model => model.CertificateName)
+                </a>
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CertificateName)
+                </td>
+                <td>
+                    <a class="btn text-dark details" asp-action="Details" asp-route-id="@item.Id" title="Посмотреть подробнее">
+                        <i class="far fa-eye"></i>
+                    </a> |
+                    <a class="btn text-dark" asp-action="Edit" asp-route-id="@item.Id" title="Редактировать">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a> |
+                    <a class="btn text-dark" asp-action="Delete" asp-route-id="@item.Id" title="Удалить">
+                        <i class="far fa-minus-square"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+           $.ajaxSetup({ cache: false });
+            $(".details").click(function (e) {
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}

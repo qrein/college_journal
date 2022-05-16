@@ -1,0 +1,100 @@
+﻿@model EducateApp.ViewModels.Groups.EditGroupViewModel
+@{
+    ViewData["Title"] = "Изменение - Группы";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Groups" asp-action="Index">Группы</a></li>
+        <li class="breadcrumb-item active">Изменение</li>
+    </ol>
+</nav>
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Изменение группы
+</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            @*создание выпадающего списка, элемента select при помощи Html-хелпера*@
+            <div class="form-group">
+                <label asp-for="IdFormOfStudy" class="control-label"></label>
+                @Html.DropDownListFor(m => m.IdFormOfStudy,@* для какого свойства модели*@
+ViewBag.FormsOfStudy as SelectList,          /* получаем переданные данные через ViewBag*/
+new { id = "formOfStudy", @class = "form-control" })     @* указываем дополнительные атрибуты для элемента*@
+</div>
+<div class="form-group">
+    <label asp-for="IdSpecialty" class="control-label"></label>
+    @Html.DropDownListFor(m => m.IdSpecialty,
+       ViewBag.Specialties as SelectList,
+       new { id = "specialty", @class = "form-control" })
+</div>
+<div class="form-group">
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CountOfStudents" class="control-label"></label>
+    <input asp-for="CountOfStudents" class="form-control" />
+    <span asp-validation-for="CountOfStudents" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="YearOfAdmission" class="control-label"></label>
+    <input asp-for="YearOfAdmission" class="form-control" />
+    <span asp-validation-for="YearOfAdmission" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="YearOfIssue" class="control-label"></label>
+    <input asp-for="YearOfIssue" class="form-control" />
+    <span asp-validation-for="YearOfIssue" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="ClassTeacher" class="control-label"></label>
+    <input asp-for="ClassTeacher" class="form-control" />
+    <span asp-validation-for="ClassTeacher" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="ContactsTeacher" class="control-label"></label>
+    <input asp-for="ContactsTeacher" class="form-control" />
+    <span asp-validation-for="ContactsTeacher" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <input type="submit" value="Сохранить" class="btn btn-primary" />
+</div>
+</form>
+</div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            // когда вызывается событие change для элемента управления
+            // т.е. выбирается новый элемент списка
+            $('#formOfStudy').change(function()
+            {
+                // получаем выбранный id
+                var id = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("GetItems")/' + id,
+                    success: function (data) {
+
+                        // заменяем содержимое присланным частичным представлением
+                        $('#specialty').replaceWith(data);
+                    }
+                });
+            });
+        })
+    </script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

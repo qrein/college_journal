@@ -1,0 +1,23 @@
+﻿@model EducateApp.Models.Data.FormOfStudy
+
+@{
+    ViewData["Title"] = "Формы обучения";
+}
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Просмотр формы обучения
+</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.FormOfEdu)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.FormOfEdu)
+        </dd>
+    </dl>
+</div>

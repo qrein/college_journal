@@ -1,0 +1,62 @@
+﻿@model EducateApp.Models.Data.Group
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Просмотр группы</h4>
+        <button type="button" class="close" data-dismiss="modal">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="modal-body">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CountOfStudents)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CountOfStudents)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.YearOfAdmission)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.YearOfAdmission)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.YearOfIssue)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.YearOfIssue)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ClassTeacher)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ClassTeacher)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ContactsTeacher)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ContactsTeacher)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Specialty)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Specialty.Code)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Specialty.FormOfStudy)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Specialty.FormOfStudy.FormOfEdu)
+            </dd>
+        </dl>
+    </div>
+</div>

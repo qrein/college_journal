@@ -1,0 +1,82 @@
+﻿@model EducateApp.Models.Data.Group
+@{
+    ViewData["Title"] = "Удаление - Группы";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Groups" asp-action="Index">Группы</a></li>
+        <li class="breadcrumb-item active">Удаление</li>
+    </ol>
+</nav>
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Удаление группы
+</h3>
+
+<div>
+    <h4>
+        Вы уверены, что желаете удалить запись?<br />
+        Все связанные данные будут удалены!
+    </h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CountOfStudents)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CountOfStudents)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.YearOfAdmission)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.YearOfAdmission)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.YearOfIssue)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.YearOfIssue)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.ClassTeacher)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.ClassTeacher)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.ContactsTeacher)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.ContactsTeacher)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Specialty)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Specialty.Code)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Specialty.FormOfStudy)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Specialty.FormOfStudy.FormOfEdu)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+    </form>
+</div>
